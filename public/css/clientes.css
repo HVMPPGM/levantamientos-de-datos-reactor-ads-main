@@ -1,0 +1,135 @@
+.cliente-card {
+            transition: all 0.3s ease;
+            border-left: 4px solid #dc3545;
+            margin-bottom: 1rem;
+        }
+        
+        .cliente-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .badge-status {
+            padding: 0.5rem 1rem;
+            font-size: 0.85rem;
+        }
+        
+        .articulo-badge {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 0.25rem 0.75rem;
+            margin: 0.25rem;
+            border-radius: 20px;
+            display: inline-block;
+            font-size: 0.85rem;
+        }
+        
+        .articulo-badge.principal {
+            background: #dc3545;
+            color: white;
+            border-color: #dc3545;
+        }
+        
+        .tab-content {
+            padding: 1.5rem 0;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #6c757d;
+            border: none;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: #dc3545;
+            border-bottom-color: #dc3545;
+            background: transparent;
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #6c757d;
+        }
+        
+        .search-box input {
+            padding-left: 45px;
+        }
+        
+        .action-buttons .btn {
+            margin: 0 0.25rem;
+        }
+        
+        .modal-lg {
+            max-width: 900px;
+        }
+        
+        .form-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .articulos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .articulo-checkbox {
+            position: relative;
+        }
+        
+        .articulo-checkbox input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+        
+        .articulo-checkbox label {
+            cursor: pointer;
+            padding: 0.5rem;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            display: block;
+            transition: all 0.3s;
+        }
+        
+        .articulo-checkbox input[type="checkbox"]:checked + label {
+            background: #dc3545;
+            color: white;
+            border-color: #dc3545;
+        }
+        
+        .articulo-checkbox input[type="radio"] {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+        
+        .info-row {
+            display: flex;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        .info-row:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            font-weight: 600;
+            width: 180px;
+            color: #6c757d;
+        }
+        
+        .info-value {
+            flex: 1;
+            color: #212529;
+        }

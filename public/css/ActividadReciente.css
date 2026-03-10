@@ -1,0 +1,672 @@
+/* ================================================================
+   ACTIVIDAD RECIENTE — CSS PROFESIONAL
+   Colores base: Azul #1D67A8 · Rojo #dc3545
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Variables del proyecto ─────────────────────────────────── */
+:root {
+    --blue:          #1D67A8;
+    --blue-dark:     #155d96;
+    --blue-light:    #e8f2fb;
+    --blue-mid:      #cce0f5;
+    --red:           #5299d6;
+    --red-dark:      #c82333;
+    --red-light:     #fdecea;
+    --green:         #198754;
+    --green-light:   #e8f5ee;
+    --amber:         #ffc107;
+    --amber-dark:    #ffb300;
+    --amber-light:   #fff8e1;
+    --orange:        #fd7e14;
+    --orange-dark:   #e8590c;
+    --orange-light:  #fff3e8;
+    --cyan:          #0d6efd;
+    --cyan-dark:     #0a58ca;
+    --cyan-light:    #e7f0ff;
+
+    --gray-50:       #f8f9fa;
+    --gray-100:      #f1f3f5;
+    --gray-200:      #e9ecef;
+    --gray-400:      #adb5bd;
+    --gray-500:      #6c757d;
+    --gray-700:      #495057;
+    --gray-900:      #212529;
+
+    --radius-sm:     6px;
+    --radius-md:     10px;
+    --radius-lg:     14px;
+    --radius-xl:     20px;
+    --shadow-card:   0 2px 12px rgba(29, 103, 168, 0.10);
+    --shadow-hover:  0 4px 20px rgba(29, 103, 168, 0.16);
+    --transition:    0.2s ease;
+}
+
+/* ================================================================
+   TARJETA CONTENEDORA
+   ================================================================ */
+.activity-card {
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--blue-mid);
+    transition: box-shadow var(--transition);
+}
+
+.activity-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.activity-card .card-header {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    padding: 16px 20px;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.activity-card .card-header h5 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 14.5px;
+    color: #ffffff;
+    margin: 0;
+    letter-spacing: 0.2px;
+}
+
+/* Badge "N hoy" en rojo */
+.badge-new {
+    background: var(--red);
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-xl);
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    box-shadow: 0 2px 6px rgba(24, 118, 224, 0.4);
+}
+
+/* ================================================================
+   FILTROS POR DÍA / MES / TODO
+   ================================================================ */
+.activity-filters {
+    display: flex;
+    gap: 6px;
+    padding: 12px 16px 8px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+}
+
+.filter-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: var(--radius-xl);
+    border: 1.5px solid var(--gray-200);
+    background: #ffffff;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: all var(--transition);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.filter-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-light);
+}
+
+.filter-btn.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(29, 103, 168, 0.30);
+}
+
+/* ================================================================
+   ÁREA DE SCROLL
+   ================================================================ */
+.activity-scroll {
+    flex: 1;
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.activity-scroll::-webkit-scrollbar {
+    width: 5px;
+}
+.activity-scroll::-webkit-scrollbar-track {
+    background: var(--gray-100);
+    border-radius: 10px;
+}
+.activity-scroll::-webkit-scrollbar-thumb {
+    background: var(--red);
+    border-radius: 10px;
+}
+.activity-scroll::-webkit-scrollbar-thumb:hover {
+    background: var(--red-dark);
+}
+
+/* ================================================================
+   SEPARADORES DE DÍA Y MES
+   ================================================================ */
+.day-separator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px 4px;
+}
+
+.day-separator-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--blue);
+    white-space: nowrap;
+}
+
+.day-separator-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--blue-mid), transparent);
+}
+
+.day-separator-count {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--gray-400);
+    background: var(--gray-100);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+.month-separator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px 8px;
+}
+
+.month-separator-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #ffffff;
+    background: var(--blue);
+    padding: 3px 10px;
+    border-radius: var(--radius-sm);
+}
+
+.month-separator-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+}
+
+/* ================================================================
+   ÍTEM DE ACTIVIDAD
+   ================================================================ */
+.activity-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--gray-100);
+    border-left: 3px solid transparent;
+    transition: background var(--transition), border-left-color var(--transition);
+}
+
+.activity-item:hover {
+    background: var(--blue-light);
+    border-left-color: var(--blue);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+/* ── Íconos circulares ──────────────────────────────────────── */
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #ffffff;
+    flex-shrink: 0;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.activity-item:hover .activity-icon {
+    transform: scale(1.08);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+.activity-icon.usuario {
+    background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+    box-shadow: 0 2px 6px rgba(29, 103, 168, 0.30);
+}
+
+.activity-icon.levantamiento {
+    background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+    box-shadow: 0 2px 6px rgba(13, 110, 253, 0.30);
+}
+
+.activity-icon.cliente {
+    background: linear-gradient(135deg, var(--green), #146c43);
+    box-shadow: 0 2px 6px rgba(25, 135, 84, 0.30);
+}
+
+.activity-icon.producto {
+    background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+    box-shadow: 0 2px 6px rgba(255, 193, 7, 0.35);
+}
+
+.activity-icon.cotizacion {
+    background: linear-gradient(135deg, var(--orange), var(--orange-dark));
+    box-shadow: 0 2px 6px rgba(253, 126, 20, 0.30);
+}
+
+/* ── Textos del ítem ────────────────────────────────────────── */
+.activity-user {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--gray-900);
+    line-height: 1.3;
+}
+
+.activity-description {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: var(--gray-700);
+    margin: 3px 0 4px;
+    line-height: 1.4;
+}
+
+.activity-time {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--gray-400);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ── Footer de la tarjeta ───────────────────────────────────── */
+.activity-card .card-footer {
+    padding: 10px 16px;
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    text-align: center;
+}
+
+.btn-ver-todas {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--blue);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap var(--transition), color var(--transition);
+}
+
+.btn-ver-todas:hover {
+    gap: 10px;
+    color: var(--blue-dark);
+}
+
+/* ================================================================
+   MODAL — HISTORIAL COMPLETO
+   ================================================================ */
+#modalActividades .modal-dialog {
+    max-width: 780px;
+}
+
+#modalActividades .modal-content {
+    border: none;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+}
+
+#modalActividades .modal-header {
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    border: none;
+    padding: 18px 24px;
+}
+
+#modalActividades .modal-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+#modalActividades .btn-close {
+    filter: invert(1) brightness(2);
+    opacity: 0.85;
+}
+
+/* ── Controles del modal ────────────────────────────────────── */
+.modal-controls {
+    display: flex;
+    gap: 8px;
+    padding: 14px 24px 0;
+    flex-wrap: wrap;
+    align-items: center;
+    background: #ffffff;
+}
+
+.modal-search {
+    position: relative;
+    flex: 1;
+    min-width: 180px;
+}
+
+.modal-search input {
+    width: 100%;
+    padding: 8px 12px 8px 34px;
+    border: 1.5px solid var(--gray-200);
+    border-radius: var(--radius-md);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: var(--gray-900);
+    outline: none;
+    background: var(--gray-50);
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.modal-search input:focus {
+    border-color: var(--blue);
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(29, 103, 168, 0.10);
+}
+
+.modal-search input::placeholder { color: var(--gray-400); }
+
+.modal-search .search-icon {
+    position: absolute;
+    left: 11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gray-400);
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.modal-filter-group {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.modal-filter-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--gray-200);
+    background: #ffffff;
+    color: var(--gray-500);
+    cursor: pointer;
+    transition: all var(--transition);
+    outline: none;
+    white-space: nowrap;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.modal-filter-btn:hover {
+    border-color: var(--blue);
+    color: var(--blue);
+    background: var(--blue-light);
+}
+
+.modal-filter-btn.active {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #ffffff;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(29, 103, 168, 0.28);
+}
+
+.modal-period-select {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 7px 12px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--gray-200);
+    color: var(--gray-700);
+    background: var(--gray-50);
+    cursor: pointer;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.modal-period-select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(29, 103, 168, 0.10);
+}
+
+/* ── Cuerpo del modal ───────────────────────────────────────── */
+#modalActividades .modal-body {
+    padding: 16px 24px 20px;
+    max-height: 520px;
+    overflow-y: auto;
+    background: #ffffff;
+}
+
+#modalActividades .modal-body::-webkit-scrollbar { width: 5px; }
+#modalActividades .modal-body::-webkit-scrollbar-track { background: var(--gray-100); border-radius: 10px; }
+#modalActividades .modal-body::-webkit-scrollbar-thumb { background: var(--red); border-radius: 10px; }
+#modalActividades .modal-body::-webkit-scrollbar-thumb:hover { background: var(--red-dark); }
+
+/* ── Timeline grupos ────────────────────────────────────────── */
+.timeline-group { margin-bottom: 20px; }
+
+.timeline-group-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    position: sticky;
+    top: 0;
+    background: #ffffff;
+    z-index: 2;
+    padding: 6px 0 4px;
+    border-bottom: 1px solid var(--gray-100);
+}
+
+.timeline-date-badge {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 11.5px;
+    color: var(--blue);
+    background: var(--blue-light);
+    border: 1px solid var(--blue-mid);
+    padding: 3px 12px;
+    border-radius: var(--radius-xl);
+    white-space: nowrap;
+}
+
+.timeline-count {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--gray-400);
+    white-space: nowrap;
+}
+
+.timeline-line {
+    flex: 1;
+    height: 1px;
+    background: var(--gray-200);
+}
+
+/* ── Filas del modal ────────────────────────────────────────── */
+.modal-activity-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 9px 10px;
+    border-radius: var(--radius-sm);
+    border-left: 3px solid transparent;
+    transition: background var(--transition), border-left-color var(--transition);
+}
+
+.modal-activity-row:hover {
+    background: var(--blue-light);
+    border-left-color: var(--blue);
+}
+
+.modal-act-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.modal-act-icon.usuario       { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); }
+.modal-act-icon.levantamiento { background: linear-gradient(135deg, var(--cyan), var(--cyan-dark)); }
+.modal-act-icon.cliente       { background: linear-gradient(135deg, var(--green), #146c43); }
+.modal-act-icon.producto      { background: linear-gradient(135deg, var(--amber), var(--amber-dark)); }
+.modal-act-icon.cotizacion    { background: linear-gradient(135deg, var(--orange), var(--orange-dark)); }
+
+.modal-act-content { flex: 1; min-width: 0; }
+
+.modal-act-user {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--gray-900);
+}
+
+.modal-act-desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    color: var(--gray-700);
+    margin-top: 2px;
+    line-height: 1.4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.modal-act-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 4px;
+    flex-wrap: wrap;
+}
+
+.modal-act-time,
+.modal-act-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    color: var(--gray-400);
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+/* ── Sin resultados ─────────────────────────────────────────── */
+.no-results {
+    text-align: center;
+    padding: 48px 20px;
+    color: var(--gray-400);
+}
+
+.no-results i {
+    font-size: 38px;
+    margin-bottom: 12px;
+    opacity: 0.45;
+    display: block;
+}
+
+.no-results p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    margin: 0;
+}
+
+/* ── Footer del modal ───────────────────────────────────────── */
+#modalActividades .modal-footer {
+    padding: 12px 24px;
+    border-top: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    justify-content: space-between;
+}
+
+#modalActividades .modal-footer small {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--gray-500);
+}
+
+#modalActividades .modal-footer .btn-outline-secondary {
+    font-family: 'Inter', sans-serif;
+    font-size: 12.5px;
+    padding: 5px 16px;
+    border-radius: var(--radius-md);
+    border-color: var(--gray-200);
+    color: var(--gray-700);
+    transition: all var(--transition);
+}
+
+#modalActividades .modal-footer .btn-outline-secondary:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: #ffffff;
+}
+
+/* ── Animación de entrada ───────────────────────────────────── */
+#modalActividades.show .modal-content {
+    animation: modalIn 0.25s ease;
+}
+
+@keyframes modalIn {
+    from { opacity: 0; transform: translateY(14px) scale(0.98); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    }
+}
+
+/* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 991px) {
+    .activity-card { margin-top: 20px; }
+}
+
+@media (max-width: 576px) {
+    .modal-controls { padding: 12px 16px 0; gap: 6px; }
+    #modalActividades .modal-body { padding: 12px 14px 16px; }
+    #modalActividades .modal-header { padding: 14px 16px; }
+    .modal-filter-group { width: 100%; }
+    .modal-act-desc { white-space: normal; }
+}
